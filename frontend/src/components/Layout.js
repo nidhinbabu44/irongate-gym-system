@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
-import { 
-  LayoutDashboard, Users, CreditCard, DoorOpen, 
-  ClipboardList, Settings, LogOut, Menu, X, Dumbbell, ChevronRight
+import { isDemoMode } from '../utils/api';
+import {
+  LayoutDashboard, Users, CreditCard, DoorOpen,
+  ClipboardList, Settings, LogOut, Menu, X, Dumbbell, ChevronRight, FlaskConical
 } from 'lucide-react';
 
 const navItems = [
@@ -130,6 +131,21 @@ export default function Layout() {
 
       {/* Main */}
       <main style={{ flex: 1, marginLeft: collapsed ? 64 : 240, transition: 'margin-left 0.25s ease', minHeight: '100vh' }}>
+        {(isDemoMode || localStorage.getItem('demo_mode') === 'true') && (
+          <div style={{
+            background: 'linear-gradient(90deg, #78350f, #92400e)',
+            borderBottom: '1px solid #d97706',
+            padding: '0.4rem 2rem',
+            display: 'flex', alignItems: 'center', gap: '0.5rem',
+            fontSize: '0.8rem', color: '#fde68a', fontWeight: 600,
+          }}>
+            <FlaskConical size={14} />
+            DEMO MODE — Running with mock data. Backend not connected.
+            <span style={{ marginLeft: 'auto', fontWeight: 400, opacity: 0.8 }}>
+              Login: admin / Admin@123456
+            </span>
+          </div>
+        )}
         <div style={{ padding: '2rem', maxWidth: 1400, margin: '0 auto' }}>
           <Outlet />
         </div>

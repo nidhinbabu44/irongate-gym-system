@@ -15,6 +15,7 @@ export default function LoginPage() {
     e.preventDefault();
     if (!form.username || !form.password) return toast.error('Enter credentials');
     setLoading(true);
+    localStorage.removeItem('demo_mode');
     try {
       await login(form.username, form.password);
       toast.success('Welcome back!');
@@ -25,6 +26,8 @@ export default function LoginPage() {
       setLoading(false);
     }
   };
+
+  const fillDemo = () => setForm({ username: 'admin', password: 'Admin@123456' });
 
   return (
     <div style={{
@@ -116,7 +119,9 @@ export default function LoginPage() {
         </form>
 
         <p style={{ textAlign: 'center', fontSize: '0.72rem', color: 'var(--text-dim)', marginTop: '1.5rem' }}>
-          Default: admin / Admin@123456
+          <button onClick={fillDemo} style={{ background: 'none', border: 'none', color: 'var(--accent-bright)', cursor: 'pointer', fontSize: '0.78rem', textDecoration: 'underline' }}>
+            Try Demo → admin / Admin@123456
+          </button>
         </p>
       </div>
     </div>
