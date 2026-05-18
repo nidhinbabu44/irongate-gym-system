@@ -19,8 +19,12 @@ npm-debug.log*
 demo-frames/
 demo-capture.js
 make-video.ps1
-package.json
-package-lock.json
+seed-dummy.js
+backend/seed-dummy.js
+
+# Root-level package files (puppeteer install)
+/package.json
+/package-lock.json
 
 # Face-api.js model binary files (large — download separately)
 frontend/public/models/
