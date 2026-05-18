@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+backend/node_modules/
+
+# Environment
+backend/.env
+.env
+
+# Build
+frontend/build/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Demo files (generated)
+demo-frames/
+demo-capture.js
+make-video.ps1
+package.json
+package-lock.json
+
+# Face-api.js model binary files (large — download separately)
+frontend/public/models/
+
+# Uploaded member photos
+backend/uploads/
+
+# Claude Code settings
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker volumes
+.docker/
